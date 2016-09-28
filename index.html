@@ -2,11 +2,89 @@
 <html>
 <head>
 <title>Weather</title>
-<link href="weather2.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<style type="text/css">
+    #c1 {
+    width: 33%;
+    background-image: url("http://bdo.se/wp-content/uploads/2014/01/Stockholm1.jpg");
+    height: 600px;
+    display: inline-block;
+    z-index: -1;
+}
+
+#c2 {
+    width: 33%;
+    background-image: url("http://www.mycity-web.com/wp-content/uploads/2016/07/F1.jpg");
+    background-size: 1500px;
+    height: 600px;
+    display: inline-block;
+    z-index: -1;
+}
+
+#c3 {
+    width: 33%;
+    background-image: url("http://diariodegoias.com.br/images/stories/imagens/2016/Junho_/big_ben.jpg");
+    background-size: 600px;
+    height: 600px;
+    display: inline-block;
+    z-index: -1;
+}
+
+h1 {
+    font-family: Verdana;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+
+}
+
+#bikini, #t-shirt, #jacket {
+     margin-left:100px;
+     margin-top:250px;
+      height:100px;
+}
+
+#rubrik {
+    font-family: verdana;
+    font-size: 70px;
+    text-align:center;
+}
+
+button {
+    text-align: center;
+    font-family: verdana;
+    color: grey;
+    font-size: 30px;
+    background-color: white;
+    border: 5px solid;
+    border-color: white;
+    border-radius: 15px;
+}
+
+p {
+    color:white;
+    font-size:30px;
+    font-family: verdana;
+    text-align: center;
+}
+
+h2 {
+    color:black;
+}
+
+</style>
+
+
+
 
 </head>
 <body>
+
+
+<h2 id="rubrik">WHAT TO WEAR?</h2>
+
+<button id = "getIt" onclick = "gettingJSON()">Find out!</button>
 
 <div id="wrapper">
     <div id="c1"> 
@@ -20,55 +98,94 @@
     </div>
 </div>
 
-<p> Is it hot in <input type="text" value="your city"></input> </p>
-<button id = "getIt" onclick = "gettingJSON()">Find out!</button>
-
 
 <script>
-
     function gettingJSON(){
-
-
-        $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=London&APPID=fd674d20076b6e22dfc2b10f9599998e",function(json){
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Stockholm&APPID=fd674d20076b6e22dfc2b10f9599998e",function(json){
             console.log(json);
-
             var temp = json.main.temp
-
             console.log(temp);
-
         if (temp >= 298 ) {
-            $('body').append('<p>Bikini weather!</p>');
+            $('#c1').append('<img id="bikini" src="bikini.png">');
+            $('#c1').append('<p>Bikini weather!</p>');
         }
-
         else if (temp <= 298 && temp >= 293){
-            $('body').append('<img src="t-shirt.png">');
-            $('body').append('<p> T-shirt weather!</p>');
-
+            $('#c1').append('<img id="t-shirt" src="w-shirt.png">');
+            $('#c1').append('<p> T-shirt weather!</p>');
         }
-
         else if (temp <= 293 && temp >= 288){
-            $('body').append('<p>Bring a light jacket!</p>');
-
+            $('#c1').append('<img id="jacket" src="light_j.png">');
+            $('#c1').append('<p>Bring a light jacket!</p>');
         }
-
         else if (temp <= 288 && temp >= 283){
-            $('body').append('<p>Coat TIME!</p>');
-
+            $('#c1').append('<p>Coat TIME!</p>');
         }       
-
          else if (temp <= 283 && temp >= 273){
-            $('body').append('<p>Bring gloves and a scarf!</p>');
-
+            $('#c1').append('<p>Bring gloves and a scarf!</p>');
         }  
-
         else if (temp <= 273){
-            $('body').append('<p>Stay inside !</p>');
-
+            $('#c1').append('<p>Stay inside !</p>');
         }        
-
          });
-    };
 
+
+                    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Barcelona&APPID=fd674d20076b6e22dfc2b10f9599998e",function(json){
+                        console.log(json);
+                        var temp = json.main.temp
+                        console.log(temp);
+                    if (temp >= 298 ) {
+                        $('#c2').append('<img id="bikini" src="bikini.png">');
+                        $('#c2').append('<p>Bikini weather!</p>');
+                    }
+                    else if (temp <= 298 && temp >= 293){
+                        $('#c2').append('<img id="bild" src="w-shirt.png">');
+                        $('#c2').append('<p> T-shirt weather!</p>');
+                    }
+                    else if (temp <= 293 && temp >= 288){
+                        $('#c2').append('<img id="jacket" src="light_j.png">');
+                        $('#c2').append('<p>Bring a light jacket!</p>');
+                    }
+                    else if (temp <= 288 && temp >= 283){
+                        $('#c2').append('<p>Coat TIME!</p>');
+                    }       
+                     else if (temp <= 283 && temp >= 273){
+                        $('#c2').append('<p>Bring gloves and a scarf!</p>');
+                    }  
+                    else if (temp <= 273){
+                        $('#c2').append('<p>Stay inside !</p>');
+                    }        
+                     });
+
+
+                                        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=fd674d20076b6e22dfc2b10f9599998e",function(json){
+                                        console.log(json);
+                                        var temp = json.main.temp
+                                        console.log(temp);
+                                    if (temp >= 298 ) {
+                                        $('#c3').append('<img id="bikini" src="bikini.png">');
+                                        $('#c3').append('<p>Bikini weather!</p>');
+                                    }
+                                    else if (temp <= 298 && temp >= 293){
+                                        $('#c3').append('<img id="t-shirt" src="w-shirt.png">');
+                                        $('#c3').append('<p> T-shirt weather!</p>');
+                                    }
+                                    else if (temp <= 293 && temp >= 288){
+                                        $('#c3').append('<img id="jacket" src="light_j.png">');
+                                        $('#c3').append('<p>Bring a light jacket!</p>');
+                                    }
+                                    else if (temp <= 288 && temp >= 283){
+                                        $('#c3').append('<p>Coat TIME!</p>');
+                                    }       
+                                     else if (temp <= 283 && temp >= 273){
+                                        $('#c3').append('<p>Bring gloves and a scarf!</p>');
+                                    }  
+                                    else if (temp <= 273){
+                                        $('#c3').append('<p>Stay inside !</p>');
+                                    }        
+                                     });        
+
+
+    };
    
     </script>
 
