@@ -4,30 +4,7 @@
 <title>Weather</title>
 <link href="weather2.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script>
 
-    function gettingJSON(){
-
-        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Stockholm&APPID=fd674d20076b6e22dfc2b10f9599998e",function(json){
-            console.log(json);
-
-            var temp = json.main.temp
-
-            console.log(temp);
-
-        if (temp > 250) {
-        	$('body').append('<p>Its hot!</p>');
-        }
-
-        else { $('body').append('<p>Its not so hot...</p>');
-
-        }
-
-         });
-    };
-
-   
-    </script>
 </head>
 <body>
 
@@ -45,5 +22,58 @@
 
 <p> Is it hot in <input type="text" value="your city"></input> </p>
 <button id = "getIt" onclick = "gettingJSON()">Find out!</button>
+
+<button id = "getIt" onclick = "gettingJSON()">Find out!</button>
+
+
+<script>
+
+    function gettingJSON(){
+
+
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=London&APPID=fd674d20076b6e22dfc2b10f9599998e",function(json){
+            console.log(json);
+
+            var temp = json.main.temp
+
+            console.log(temp);
+
+        if (temp >= 298 ) {
+            $('body').append('<p>Bikini weather!</p>');
+        }
+
+        else if (temp <= 298 && temp >= 293){
+            $('body').append('<img src="t-shirt.png">');
+            $('body').append('<p> T-shirt weather!</p>');
+
+        }
+
+        else if (temp <= 293 && temp >= 288){
+            $('body').append('<p>Bring a light jacket!</p>');
+
+        }
+
+        else if (temp <= 288 && temp >= 283){
+            $('body').append('<p>Coat TIME!</p>');
+
+        }       
+
+         else if (temp <= 283 && temp >= 273){
+            $('body').append('<p>Bring gloves and a scarf!</p>');
+
+        }  
+
+        else if (temp <= 273){
+            $('body').append('<p>Stay inside !</p>');
+
+        }        
+
+         });
+    };
+
+   
+    </script>
+
+
 </body>
 </html>
