@@ -1,0 +1,31 @@
+#c1 {
+    width: 33%;
+    background-image: url("http://bdo.se/wp-content/uploads/2014/01/Stockholm1.jpg");
+    height: 800px;
+    display: inline-block;
+}
+
+#c2 {
+    width: 33%;
+    background-image: url("http://www.mycity-web.com/wp-content/uploads/2016/07/F1.jpg");
+    background-size: 1500px;
+    height: 800px;
+    display: inline-block;
+}
+
+#c3 {
+    width: 33%;
+    background-image: url("http://diariodegoias.com.br/images/stories/imagens/2016/Junho_/big_ben.jpg");
+    background-size: 600px;
+    height: 800px;
+    display: inline-block;
+}
+
+h1 {
+	font-family: Verdana;
+	font-size: 50px;
+	color: white;
+	text-align: center;
+
+}
+
